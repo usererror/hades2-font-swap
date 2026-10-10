@@ -1,3 +1,5 @@
+<p align="center"><img src="docs/banner.svg" alt="Font Swap: a font replacer for Hades II" width="100%"></p>
+
 # Hades II Font Swap
 
 [![CI](https://github.com/usererror/hades2-font-swap/actions/workflows/ci.yml/badge.svg)](https://github.com/usererror/hades2-font-swap/actions/workflows/ci.yml)
