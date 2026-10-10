@@ -1,0 +1,38 @@
+# Install once with:  uv run pre-commit install
+# Hooks run the same tool versions as uv.lock, so local results match CI.
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-added-large-files
+        args: [--maxkb=200]
+        exclude: ^uv\.lock$
+      - id: check-merge-conflict
+      - id: check-toml
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+  - repo: local
+    hooks:
+      - id: ruff-check
+        name: ruff check
+        entry: uv run ruff check --fix
+        language: system
+        types: [python]
+      - id: ruff-format
+        name: ruff format
+        entry: uv run ruff format
+        language: system
+        types: [python]
+      - id: mypy
+        name: mypy
+        entry: uv run mypy
+        language: system
+        types: [python]
+        pass_filenames: false
+      - id: no-fonts-or-game-files
+        name: block fonts and game files (licensing)
+        entry: Fonts and .xnb game files can't be committed. Only tests/fixtures/ is allowed.
+        language: fail
+        files: \.(ttf|otf|ttc|xnb)$
+        exclude: ^tests/fixtures/

@@ -1,0 +1,47 @@
+name: Bug report
+description: Something went wrong applying or restoring fonts
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting! Please **don't attach font files or game .xnb files** (they're copyrighted). The output of `hades2-font-swap info` is enough.
+  - type: input
+    id: version
+    attributes:
+      label: hades2-font-swap version
+      description: Output of `hades2-font-swap --version`
+    validations:
+      required: true
+  - type: dropdown
+    id: install
+    attributes:
+      label: How are you running it?
+      options:
+        - Windows .exe from Releases
+        - Linux binary from Releases
+        - pipx / uv tool install
+        - From source
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: OS and Hades II store
+      placeholder: Windows 11, Steam
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Include the full command and its output. Screenshots of in-game text help a lot.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: info
+    attributes:
+      label: Output of `hades2-font-swap info` on the affected file
+      description: Run it on the file in the `en_original_backup` folder.
+      render: text
